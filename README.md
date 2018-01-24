@@ -22,7 +22,6 @@ Both options start a web server on http://127.0.0.1:9999
 ```
 2. Example
 ```
-#!javascript
 const container = document.getElementById("container");
 const globe = new CimplexGlobeView(container, {
 	basinsLoaded: globeLoaded
@@ -71,34 +70,34 @@ options = {
 * Set basin values
 
 ```
-	const data = {
-		732: 1.2,   // pair of basin id + basin value
-		720: 20.3
-	};
-	globe.updateBasinValues(data);
+const data = {
+	732: 1.2,   // pair of basin id + basin value
+	720: 20.3
+};
+globe.updateBasinValues(data);
 ```
 
 * Add transitions
 
 ```
 // add transitions on the globe
-	const transitions = [
-		{
-			from: 732,      // source basin
-			to: 720,        // target basin
-			weight: 1.0     // weight of the basin
-		}
-	];
-	globe.addTransitions(transitions);
+const transitions = [
+	{
+		from: 732,      // source basin
+		to: 720,        // target basin
+		weight: 1.0     // weight of the basin
+	}
+];
+globe.addTransitions(transitions);
 ```
 
 * Setup tile provider
 
 ```
 // provide a callback to a custom tile provider
-    globeView.urlCallback = (level, x, y) => {
-        return `http://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/${level}/${y}/${x}`;
-    };
+globeView.urlCallback = (level, x, y) => {
+return `http://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/${level}/${y}/${x}`;
+};
 ```
 
 * Load custom basins/regions
