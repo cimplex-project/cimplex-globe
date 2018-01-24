@@ -111,6 +111,12 @@ fetch("./resources/basins.geojson")
     });
 ```
 
+## Tile providers used in example
+
+* Tileset light_gray, light_gray(no labels), dark and dark(no labels) &copy; [OpenStreetMap](http://www.openstreetmap.org/copyright) &copy [CartoDB](http://cartodb.com/attributions)
+* Tileset sattelite &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, 
+	IGP, UPR-EGP, and the GIS User Community
+
 ## Authors
 
 Authors of this project (comprising ideas, architecture, and code) are:
