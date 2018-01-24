@@ -1,4 +1,4 @@
-# globe #
+# cimplex-globe #
 
 A high performance JavaScript library for visualizing data on a globe using WebGL and Fastlane.
 
