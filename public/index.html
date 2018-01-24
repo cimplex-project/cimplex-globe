@@ -1,0 +1,75 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" data-feature="WebVR" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+    <title>globe example</title>
+
+    <meta name="theme-color" content="#2E3AA1">
+
+    <style>
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .maximize {
+            width: 100vw;
+            height: 100vh;
+        }
+
+        canvas {
+            display: block;
+        }
+
+        .disabled {
+            pointer-events: none;
+            opacity: 0.4;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container" class="maximize">
+        <div style="display: block; float: right; position: absolute; bottom: 0px; right: 20px; background: rgba(255, 255, 255, 0.7); font-size: 11px;">
+            <p> Tileset light_gray, light_gray(no labels), dark and dark(no labels) &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a></p>
+            <p> Tileset sattelite &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community
+        </div>
+    </div>
+
+    <script>
+        SharedArrayBuffer = ArrayBuffer;
+    </script>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.7.0-0/dat.gui.min.js"></script>
+    <script type="text/javascript" src="/external/fastlane.js"></script>
+    <script type="text/javascript" src="/dist/app.js"></script>
+    <script>
+        const container = document.getElementById("container");
+        let globeView = new CimplexGlobeView(container, {
+            scaleBasins: 0.1,
+            extrudeBasins: true,
+            enableGlobe: true,
+            enablePostprocessing: true,
+            sphericalMapping: true,
+            showStats: false,
+            enableVR: true,
+            tileUrlCallback: (level, x, y) => {
+                return `http://s.basemaps.cartocdn.com/light_nolabels/${level}/${x}/${y}.png`;
+            }
+        });
+
+        container.addEventListener("basin-picked", event => {
+
+        });
+    </script>
+    <script type="text/javascript" src="/js/colorLookup.js"></script>
+    <script type="text/javascript" src="/js/gui.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,6 @@
+version: '2'
+services:
+  cimplex:
+    build: .
+    ports:
+      - "9999"
