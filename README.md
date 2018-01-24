@@ -17,7 +17,6 @@ Both options start a web server on http://127.0.0.1:9999
 ### Setup the library ###
 1. Include the public/dist/app.js and public/external/fastlane.js in your HTML document
 ```
-#!html
 <script src="dist/app.js"></script>
 <script src="external/fastlane.js"></script>
 ```
@@ -56,7 +55,6 @@ function globeLoaded() {
 * Create a new globe view instance
 
 ```
-#!javascript
 const globe = new CimplexGlobeView(options) 
 
 options = {
@@ -73,7 +71,6 @@ options = {
 * Set basin values
 
 ```
-#!javascript
 	const data = {
 		732: 1.2,   // pair of basin id + basin value
 		720: 20.3
@@ -84,7 +81,6 @@ options = {
 * Add transitions
 
 ```
-#!javascript
 // add transitions on the globe
 	const transitions = [
 		{
@@ -99,7 +95,6 @@ options = {
 * Setup tile provider
 
 ```
-#!javascript
 // provide a callback to a custom tile provider
     globeView.urlCallback = (level, x, y) => {
         return `http://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/${level}/${y}/${x}`;
@@ -109,7 +104,6 @@ options = {
 * Load custom basins/regions
 
 ```
-#!javascript
 fetch("./resources/basins.geojson")
     .then(response => response.json())
     .then(data => {
