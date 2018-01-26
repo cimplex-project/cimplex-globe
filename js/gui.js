@@ -30,7 +30,7 @@ const basinsColorSettings = {
 
 const simulationObject = {
     day: 0,
-    autoplay: false,
+    autoplay: true,
     simulation: []
 }
 
@@ -144,10 +144,11 @@ const day = simulation.add(simulationObject, "day", 1, 365)
 
 simulation.add(simulationObject, "autoplay")
     .onChange(value => {
-        day.domElement.classList.toggle("disabled");
         if (value) {
+            day.domElement.classList.add("disabled");
             loadDay();
         } else {
+            day.domElement.classList.remove("disabled");
             if (timeoutFunction) {
                 clearTimeout(timeoutFunction);
             }
@@ -239,4 +240,9 @@ fetch("./resources/basins.geojson")
     .then(data => {
         globeView.loadRegions(data);
         calculateSimulation();
+
+        if(simulationObject.autoplay) {
+            day.domElement.classList.add("disabled");
+            loadDay();
+        }
     });
