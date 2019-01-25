@@ -11,14 +11,14 @@
     "start": "serve ./public -p 9999"
   },
   "dependencies": {
-    "browserify": "^13.1.1",
+    "browserify": "^16.2.3",
     "browserify-userscript-header": "^0.1.1",
     "earcut": "^2.1.1",
     "geodesy": "^1.1.1",
     "geojson-polygon-center": "0.0.0",
-    "serve": "^6.4.3",
+    "serve": "^10.1.1",
     "stats.js": "^0.17.0",
     "three": "^0.86.0",
-    "watchify": "^3.7.0"
+    "watchify": "^3.11.0"
   }
 }
